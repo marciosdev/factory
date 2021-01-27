@@ -6,7 +6,8 @@ uses
   uFormMain in 'Source\uFormMain.pas' {frmMain},
   FCT.Connection in 'Source\common\class\FCT.Connection.pas',
   FCT.Setting in 'Source\common\class\FCT.Setting.pas',
-  FCT.Security in 'Source\common\class\FCT.Security.pas';
+  FCT.Security in 'Source\common\class\FCT.Security.pas',
+  FCT.Constant in 'Source\common\class\FCT.Constant.pas';
 
 {$R *.res}
 

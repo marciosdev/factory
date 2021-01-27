@@ -20,34 +20,34 @@ type
 
 implementation
 
-const
-  sKEY_FACTORY = '\Software\Factory';
+uses
+  FCT.Constant;
 
 { TFCTSetting }
 
 function TFCTSetting.GetPostgrePass: string;
 begin
-
+  Result := GetSetting(SETTING_POSTGRE_PASS);
 end;
 
 function TFCTSetting.GetPostgrePort: integer;
 begin
-
+  Result := GetSetting(SETTING_POSTGRE_PORT);
 end;
 
 function TFCTSetting.GetPostgreProvider: string;
 begin
-
+  Result := GetSetting(SETTING_POSTGRE_PROVIDER);
 end;
 
 function TFCTSetting.GetPostgreServer: string;
 begin
-
+  Result := GetSetting(SETTING_POSTGRE_SERVER);
 end;
 
 function TFCTSetting.GetPostgreUser: string;
 begin
-
+  Result := GetSetting(SETTING_POSTGRE_USER);
 end;
 
 function TFCTSetting.GetSetting(const psKeyName: string): Variant;
@@ -59,7 +59,7 @@ begin
   try
     oReg.Lazywrite := False;
     oReg.RootKey := HKEY_LOCAL_MACHINE;
-    oReg.OpenKeyReadOnly(sKEY_FACTORY);
+    oReg.OpenKeyReadOnly(HKEY_FACTORY);
 
     try
       Result := oReg.ReadString(psKeyName);
