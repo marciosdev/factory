@@ -10,17 +10,17 @@ inherited frmMessage: TfrmMessage
   PixelsPerInch = 96
   TextHeight = 18
   object SpeedButton: TSpeedButton
-    Left = 16
-    Top = 123
-    Width = 33
-    Height = 33
+    Left = 17
+    Top = 131
+    Width = 25
+    Height = 25
     Action = actPrinScreen
     ParentShowHint = False
     ShowHint = True
   end
   object Bevel1: TBevel
     Left = 16
-    Top = 98
+    Top = 106
     Width = 462
     Height = 19
     Shape = bsBottomLine
@@ -98,25 +98,25 @@ inherited frmMessage: TfrmMessage
   end
   object btnYes: TButton
     Left = 166
-    Top = 126
+    Top = 131
     Width = 100
-    Height = 30
+    Height = 25
     Action = actYes
     TabOrder = 2
   end
   object btnNo: TButton
     Left = 272
-    Top = 126
+    Top = 131
     Width = 100
-    Height = 30
+    Height = 25
     Action = actNo
     TabOrder = 3
   end
   object btnCancel: TButton
     Left = 378
-    Top = 126
+    Top = 131
     Width = 100
-    Height = 30
+    Height = 25
     Action = actCancel
     TabOrder = 4
   end
