@@ -23,7 +23,6 @@ type
       class procedure Free;
     public
       constructor Create; overload;
-      destructor Destroy; override;
       class function GetConnection: TUniConnection;
   end;
 
@@ -35,21 +34,6 @@ constructor TFCTConnection.Create;
 begin
   inherited;
   FoSetting := TFCTSetting.Create;
-end;
-
-destructor TFCTConnection.Destroy;
-begin
-  if Assigned(FoFCTConnection) then
-  begin
-    FoFCTConnection.FoConnection.Close;
-    FreeAndNil(FoFCTConnection.FoConnection);
-    FreeAndNil(FoFCTConnection);
-  end;
-
-  if Assigned(FoSetting) then
-    FreeAndNil(FoSetting);
-
-  inherited;
 end;
 
 procedure TFCTConnection.DoBeforeConnect;
