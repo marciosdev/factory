@@ -10,7 +10,7 @@ uses
   System.Actions, Vcl.ActnList, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore,
   dxSkinsDefaultPainters, cxImage, cxTextEdit, cxMemo, dxGDIPlusClasses,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.Imaging.pngimage, cxLabel;
 
 type
   TypeMessage = (tmWarning, tmError, tmInformation, tmQuestion, tmFactory);
@@ -32,6 +32,7 @@ type
     actOpenImage: TAction;
     actOK: TAction;
     Bevel1: TBevel;
+    cxTitle: TcxLabel;
     procedure actYesExecute(Sender: TObject);
     procedure actNoExecute(Sender: TObject);
     procedure actCancelExecute(Sender: TObject);
@@ -209,14 +210,17 @@ end;
 
 procedure TfrmMessage.SetTitle;
 begin
+  Caption := 'Factory ERP';
+
   case FoTypeMessage of
-    tmWarning: Caption := 'Atenção';
-    tmError: Caption := 'Erro';
-    tmInformation: Caption := 'Informação';
-    tmQuestion: Caption := 'Pergunta'
+    tmWarning: cxTitle.Caption := 'Atenção';
+    tmError: cxTitle.Caption := 'Erro';
+    tmInformation: cxTitle.Caption := 'Informação';
+    tmQuestion: cxTitle.Caption := 'Pergunta'
   else
-    Caption := 'Factory';
+    cxTitle.Caption := 'Factory';
   end;
+
 end;
 
 procedure TfrmMessage.SetTypeMessage(const poTypeMessage: TMsgDlgType; const

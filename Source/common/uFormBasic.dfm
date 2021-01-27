@@ -7,10 +7,10 @@ object frmBasic: TfrmBasic
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -15
+  Font.Height = -13
   Font.Name = 'Trebuchet MS'
   Font.Style = []
   OldCreateOrder = False
   PixelsPerInch = 96
-  TextHeight = 20
+  TextHeight = 18
 end

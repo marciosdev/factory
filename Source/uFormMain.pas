@@ -16,8 +16,6 @@ uses
 type
   TfrmMain = class(TfrmBasic)
     ActionManager: TActionManager;
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,15 +27,7 @@ var
 
 implementation
 
-uses
-  uFormMessage;
 
 {$R *.dfm}
-
-procedure TfrmMain.Button1Click(Sender: TObject);
-begin
-  inherited;
-  frmMessage.ShowInformation('hahaahah');
-end;
 
 end.

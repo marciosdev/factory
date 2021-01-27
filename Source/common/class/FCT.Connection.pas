@@ -61,15 +61,15 @@ end;
 
 class procedure TFCTConnection.Free;
 begin
+  if not Assigned(FoFCTConnection) then
+    Exit;
+
   if Assigned(FoFCTConnection.FoSetting) then
     FreeAndNil(FoFCTConnection.FoSetting);
 
-  if Assigned(FoFCTConnection) then
-  begin
-    FoFCTConnection.FoConnection.Close;
-    FreeAndNil(FoFCTConnection.FoConnection);
-    FreeAndNil(FoFCTConnection);
-  end;
+  FoFCTConnection.FoConnection.Close;
+  FreeAndNil(FoFCTConnection.FoConnection);
+  FreeAndNil(FoFCTConnection);
 end;
 
 class function TFCTConnection.GetConnection: TUniConnection;

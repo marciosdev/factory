@@ -8,7 +8,7 @@ inherited frmMessage: TfrmMessage
   ExplicitWidth = 492
   ExplicitHeight = 193
   PixelsPerInch = 96
-  TextHeight = 20
+  TextHeight = 18
   object SpeedButton: TSpeedButton
     Left = 16
     Top = 123
@@ -20,7 +20,7 @@ inherited frmMessage: TfrmMessage
   end
   object Bevel1: TBevel
     Left = 16
-    Top = 90
+    Top = 98
     Width = 462
     Height = 19
     Shape = bsBottomLine
@@ -28,7 +28,6 @@ inherited frmMessage: TfrmMessage
   object cxImage: TcxImage
     Left = 17
     Top = 18
-    AutoSize = True
     Enabled = False
     Picture.Data = {
       0B546478504E47496D61676589504E470D0A1A0A0000000D4948445200000020
@@ -65,6 +64,9 @@ inherited frmMessage: TfrmMessage
       3ECD700C8E75C08972FCBA22554491D6E7BFDD18396F058E2C1CD9569BA37946
       4845E4C7A572D271EAC64C1071FE0B300056B45360DE4C4DAF0000000049454E
       44AE426082}
+    Properties.FitMode = ifmStretch
+    Properties.GraphicClassName = 'TdxPNGImage'
+    Properties.GraphicTransparency = gtTransparent
     Properties.PopupMenuLayout.MenuItems = [pmiCustom]
     Properties.ReadOnly = True
     Properties.ShowFocusRect = False
@@ -74,10 +76,13 @@ inherited frmMessage: TfrmMessage
     Style.TransparentBorder = True
     TabOrder = 0
     Transparent = True
+    Height = 31
+    Width = 31
   end
   object cxMemo: TcxMemo
     Left = 64
-    Top = 8
+    Top = 48
+    TabStop = False
     Lines.Strings = (
       'a'
       'b'
@@ -88,33 +93,44 @@ inherited frmMessage: TfrmMessage
     Style.BorderStyle = ebsNone
     Style.Color = clMenuBar
     TabOrder = 1
-    Height = 84
+    Height = 57
     Width = 414
   end
   object btnYes: TButton
-    Left = 127
-    Top = 123
-    Width = 113
-    Height = 33
+    Left = 166
+    Top = 126
+    Width = 100
+    Height = 30
     Action = actYes
     TabOrder = 2
   end
   object btnNo: TButton
-    Left = 246
-    Top = 123
-    Width = 113
-    Height = 33
+    Left = 272
+    Top = 126
+    Width = 100
+    Height = 30
     Action = actNo
     TabOrder = 3
   end
   object btnCancel: TButton
-    Left = 365
-    Top = 123
-    Width = 113
-    Height = 33
+    Left = 378
+    Top = 126
+    Width = 100
+    Height = 30
     Action = actCancel
-    Caption = 'Cancelar (F12)'
     TabOrder = 4
+  end
+  object cxTitle: TcxLabel
+    Left = 64
+    Top = 20
+    Caption = 'cxTitle'
+    ParentFont = False
+    Style.Font.Charset = ANSI_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -16
+    Style.Font.Name = 'Trebuchet MS'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
   end
   object ActionList: TActionList
     Images = cxImageList
@@ -134,7 +150,7 @@ inherited frmMessage: TfrmMessage
     end
     object actCancel: TAction
       Category = 'Actions'
-      Caption = 'Cancelar'
+      Caption = 'Cancelar (F12)'
       ShortCut = 123
       OnExecute = actCancelExecute
     end
