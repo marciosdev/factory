@@ -1,5 +1,11 @@
 unit FCT.Setting;
 
+///  Factory ERP
+///  Date: 01-26-2020
+///  Author: Marcio Silva
+///  Git: github.com/marciosdev
+///  Mail: marciosdev@icloud.com
+
 interface
 
 uses
@@ -37,7 +43,7 @@ end;
 
 function TFCTSetting.GetPostgreProvider: string;
 begin
-  Result := GetSetting(SETTING_POSTGRE_PROVIDER);
+  Result := SETTING_POSTGRE_PROVIDER;
 end;
 
 function TFCTSetting.GetPostgreServer: string;

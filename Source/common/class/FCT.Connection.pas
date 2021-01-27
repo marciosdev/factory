@@ -1,5 +1,11 @@
 unit FCT.Connection;
 
+///  Factory ERP
+///  Date: 01-26-2020
+///  Author: Marcio Silva
+///  Git: github.com/marciosdev
+///  Mail: marciosdev@icloud.com
+
 interface
 
 uses
@@ -10,11 +16,15 @@ type
   TFCTConnection = class
     private
       FoSetting: TFCTSetting;
-      FoConnect: TUniConnection;
-      procedure AfterConnect;
+      FoConnection: TUniConnection;
+      class var FoFCTConnection: TFCTConnection;
+      procedure DoBeforeConnect;
+      procedure DoConnect;
+      class procedure Free;
     public
-    constructor Create; override;
-    destructor Destroy; override;
+      constructor Create; overload;
+      destructor Destroy; override;
+      class function GetConnection: TUniConnection;
   end;
 
 implementation
@@ -29,14 +39,70 @@ end;
 
 destructor TFCTConnection.Destroy;
 begin
+  if Assigned(FoFCTConnection) then
+  begin
+    FoFCTConnection.FoConnection.Close;
+    FreeAndNil(FoFCTConnection.FoConnection);
+    FreeAndNil(FoFCTConnection);
+  end;
+
   if Assigned(FoSetting) then
     FreeAndNil(FoSetting);
+
   inherited;
 end;
 
-procedure TFCTConnection.AfterConnect;
+procedure TFCTConnection.DoBeforeConnect;
 begin
-
+  FoConnection.Server := FoSetting.GetPostgreServer;
+  FoConnection.Port := FoSetting.GetPostgrePort;
+  FoConnection.Username := FoSetting.GetPostgreUser;
+  FoConnection.Password := FoSetting.GetPostgrePass;{oSeguranca.Decriptografar(oConfiguracao.GetSenhaPostgreSQL)};
+  FoConnection.ProviderName := FoSetting.GetPostgreProvider;
+  FoConnection.LoginPrompt := False;
 end;
+
+procedure TFCTConnection.DoConnect;
+begin
+  try
+    FoConnection.Open;
+  except
+    on E: Exception do
+    begin
+      raise Exception.Create('Error Message');
+      //TfrmMensagem.Erro(Format(sMSG_ERRO_CONECTAR_POSTGRE, [FoPostgreDB.Server, E.Message]));
+    end;
+  end;
+end;
+
+class procedure TFCTConnection.Free;
+begin
+  if Assigned(FoFCTConnection.FoSetting) then
+    FreeAndNil(FoFCTConnection.FoSetting);
+
+  if Assigned(FoFCTConnection) then
+  begin
+    FoFCTConnection.FoConnection.Close;
+    FreeAndNil(FoFCTConnection.FoConnection);
+    FreeAndNil(FoFCTConnection);
+  end;
+end;
+
+class function TFCTConnection.GetConnection: TUniConnection;
+begin
+  if not Assigned(FoFCTConnection) then
+  begin
+    FoFCTConnection := TFCTConnection.Create;
+    FoFCTConnection.FoConnection := TUniConnection.Create(nil);
+    FoFCTConnection.DoBeforeConnect;
+    FoFCTConnection.DoConnect;
+  end;
+  Result := FoFCTConnection.FoConnection;
+end;
+
+initialization
+finalization
+  TFCTConnection.Free;
+
 
 end.
