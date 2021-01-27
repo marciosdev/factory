@@ -111,6 +111,30 @@
             <Form>frmBasicRegister</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Source\common\uFormMessage.pas">
+            <Form>frmMessage</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <RcItem Include="Source\image\error.png">
+            <ResourceType>RCDATA</ResourceType>
+            <ResourceId>tmError</ResourceId>
+        </RcItem>
+        <RcItem Include="Source\image\information.png">
+            <ResourceType>RCDATA</ResourceType>
+            <ResourceId>tmInformation</ResourceId>
+        </RcItem>
+        <RcItem Include="Source\image\question.png">
+            <ResourceType>RCDATA</ResourceType>
+            <ResourceId>tmQuestion</ResourceId>
+        </RcItem>
+        <RcItem Include="Source\image\warning.png">
+            <ResourceType>RCDATA</ResourceType>
+            <ResourceId>tmWarning</ResourceId>
+        </RcItem>
+        <RcItem Include="Source\image\factory.png">
+            <ResourceType>RCDATA</ResourceType>
+            <ResourceId>tmFactory</ResourceId>
+        </RcItem>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -140,6 +164,36 @@
                 <DeployFile LocalName="Source\bin\Factory.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Factory.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Source\image\error.png" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Source\image\information.png" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Source\image\warning.png" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Source\image\factory.png" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Source\image\question.png" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
