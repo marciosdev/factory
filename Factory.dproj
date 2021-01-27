@@ -107,6 +107,10 @@
         <DCCReference Include="Source\common\class\FCT.Setting.pas"/>
         <DCCReference Include="Source\common\class\FCT.Security.pas"/>
         <DCCReference Include="Source\common\class\FCT.Constant.pas"/>
+        <DCCReference Include="Source\common\uFormBasicRegister.pas">
+            <Form>frmBasicRegister</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
